@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import pandas_datareader.data as web
 
 #Stock ID
-ETF_0050_ID='ETF_0050'
-ETF_0056_ID='ETF_0056'
+ETF_0050_ID = 'ETF_0050'
+ETF_0056_ID = 'ETF_0056'
 
 Start_Date = datetime.datetime(2020, 1, 1) #開始日期
 End_Date = datetime.datetime(2020, 12, 31) #結束日期
@@ -17,14 +17,14 @@ ETF_0056 = web.DataReader('0056.TW', 'yahoo', Start_Date, End_Date)
 
 # #顯示最近五筆資料
 print('\n')
-ETF_0050_Data=pd.DataFrame(ETF_0050)
-ETF_0050_Data=ETF_0050_Data.drop(columns=['Volume','Adj Close']) #移除'Volume','Adj Close'欄 
+ETF_0050_Data = pd.DataFrame(ETF_0050)
+ETF_0050_Data = ETF_0050_Data.drop(columns=['Volume','Adj Close']) #移除'Volume','Adj Close'欄 
 print('0050資訊:    高價   低價   開盤   收盤')
 print(round(ETF_0050_Data.tail(10),2))
 
 print('\n')
-ETF_0056_Data=pd.DataFrame(ETF_0056)
-ETF_0056_Data=ETF_0056_Data.drop(columns=['Volume','Adj Close']) #移除'Volume','Adj Close'欄
+ETF_0056_Data = pd.DataFrame(ETF_0056)
+ETF_0056_Data = ETF_0056_Data.drop(columns=['Volume','Adj Close']) #移除'Volume','Adj Close'欄
 print('0056資訊:    高價   低價   開盤   收盤')
 print(round(ETF_0056_Data.tail(10),2))
 
@@ -45,7 +45,7 @@ print('已將資訊存成.db檔')
 
 
 #繪製圖表與顯示
-ETF_0050_Chart=round(ETF_0050_Data["Close"].tail(10),2).plot(grid=True,figsize=(12,5)) 
+ETF_0050_Chart = round(ETF_0050_Data["Close"].tail(10),2).plot(grid=True,figsize=(12,5)) 
 plt.title('ETF_0050_Chart')
 plt.ylabel('Close')
 plt.xlabel('Date')
@@ -53,7 +53,7 @@ plt.savefig("ETF_0050_Chart.jpg") #儲存圖檔
 print('已將ETF_0050_Chart存成.jpg檔')
 plt.show() 
 
-ETF_0056_Chart=round(ETF_0056_Data["Close"].tail(10),2).plot(grid=True,figsize=(12,5)) 
+ETF_0056_Chart = round(ETF_0056_Data["Close"].tail(10),2).plot(grid=True,figsize=(12,5)) 
 plt.title('ETF_0056_Chart')
 plt.ylabel('Close')
 plt.xlabel('Date')
